@@ -13,7 +13,7 @@ import {
   PokemonTypes,
 } from "@utils/pokemon/PokemonType";
 import useFilterPokemon from "@context/PokemonFilter/useFilterPokemon";
-import usePokemon from "@context/PokemonList/usePokemon";
+import usePokemon from "@/context/PokemonList/usePokemon";
 import Button, { ButtonTypes } from "@/common/Button";
 import Expanded from "@common/Expanded";
 interface indexProps extends HTMLAttributes<HTMLDivElement> {}

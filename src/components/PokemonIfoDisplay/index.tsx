@@ -4,6 +4,8 @@ import PokemonInfo from "@components/PokemonInfo";
 import PokemonType from "@components/pokemonType";
 import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
 import PokemonFavorite from "../PokemonFavorite";
+import PokemonTitle from "@components/PokemonTitle";
+import PokemonImg from "@components/PokemonImg";
 interface indexProps extends HTMLAttributes<HTMLDivElement> {
   pokemon: GetPokemonProps;
 }
@@ -13,19 +15,19 @@ const index: indexComponents = ({ pokemon, ...resProps }) => {
     <div
       {...resProps}
       className={
-        " max-w-[70rem]   lg:grid  lg:grid-cols-pokemon-display " +
+        " max-w-[70rem] lg:grid  lg:grid-cols-pokemon-display " +
         `${resProps.className ? resProps.className : ""}`
       }
     >
-      <div className="w-[20rem] relative px-6 py-4 lg:col-start-1 lg:col-end-2 ">
+      <div className="w-[20rem] relative  lg:col-start-1 lg:col-end-2 ">
         <PokemonFavorite className="absolute top-0 right-0" pokemon={pokemon} />
-        <img
-          src={pokemon?.sprites?.other?.dream_world.front_default}
-          alt={`Pokemon ${pokemon?.name}`}
+        <PokemonImg
+          pokemon={pokemon}
           height={500}
           width={400}
           className="bg-card rounded-xl "
         />
+        <PokemonTitle pokemon={pokemon} />
         <PokemonInfo pokemon={pokemon} />
         <PokemonType pokemon={pokemon} className="text2xl px-6 py-2" />
       </div>

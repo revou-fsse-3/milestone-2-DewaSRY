@@ -1,11 +1,14 @@
 import { FC, Fragment, HTMLAttributes, PropsWithChildren } from "react";
 import useFilterPokemon from "../../context/PokemonFilter/useFilterPokemon";
 import PokemonCard from "@/components/PokemonCard";
+import Loading from "./Loading";
+import usePokemon from "@/context/PokemonList/usePokemon";
 interface PokemonCardsProps extends HTMLAttributes<HTMLDivElement> {}
 type PokemonCardsComponents = FC<PokemonCardsProps> & PropsWithChildren;
 const PokemonCards: PokemonCardsComponents = ({ children, ...resProps }) => {
-  const { data, isLoading } = useFilterPokemon();
-  if (isLoading) return <div>loading...</div>;
+  const { data } = useFilterPokemon();
+  const { isLoading } = usePokemon();
+
   return (
     <div
       {...resProps}
@@ -14,11 +17,16 @@ const PokemonCards: PokemonCardsComponents = ({ children, ...resProps }) => {
         ` ${resProps.className ? resProps.className : ""}`
       }
     >
-      {data.map((p, id) => (
-        <Fragment key={p.name + id + p.id}>
-          <PokemonCard pokemon={p} />
+      {/* <Loading /> */}
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Fragment>
+          {data.map((p, id) => (
+            <PokemonCard key={p.name + id + p.id} pokemon={p} />
+          ))}
         </Fragment>
-      ))}
+      )}
     </div>
   );
 };

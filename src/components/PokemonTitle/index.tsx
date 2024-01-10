@@ -1,7 +1,5 @@
 import { FC, HTMLAttributes, PropsWithChildren } from "react";
 import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
-import H2 from "@common/H2";
-import InfoDisplay from "./InfoDisplay";
 interface indexProps extends HTMLAttributes<HTMLDivElement> {
   pokemon: GetPokemonProps;
 }
@@ -11,16 +9,20 @@ const index: indexComponents = ({ pokemon, ...resProps }) => {
     <div
       {...resProps}
       className={
-        " text-white" + `${resProps.className ? resProps.className : ""}`
+        "relative w-full" + `${resProps.className ? resProps.className : ""}`
       }
     >
-      <div>
-        <H2>BMI</H2>
-        <InfoDisplay title="Hight">
-          {Number(pokemon.height / 10).toFixed(2)} M
-        </InfoDisplay>
-        <InfoDisplay title="Weight">{pokemon.weight} KG</InfoDisplay>
-      </div>
+      <span className="text-[2rem] text-white underline font-bold mr-4 absolute right-0">
+        # {pokemon.id}
+      </span>
+      <span
+        className={
+          "bg-title w-6/12  rounded-xl  " +
+          "px-4 py-2 inline-block font-bold text-xl  "
+        }
+      >
+        {pokemon.name}
+      </span>
     </div>
   );
 };

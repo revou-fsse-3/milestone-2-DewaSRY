@@ -7,7 +7,7 @@ import {
   useRef,
   ReactNode,
 } from "react";
-import Panel from "./Panel";
+import Panel from "@common/Panel";
 interface indexProps extends HTMLAttributes<HTMLDivElement> {
   expended: ReactNode | string;
 }

@@ -2,7 +2,6 @@ import { FC, Fragment, HTMLAttributes, PropsWithChildren } from "react";
 import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
 import { getCleanForward } from "@utils/StringOperations";
 import { getObjectToStringArr } from "@/utils/ObjectOperations";
-import H2 from "@common/H2";
 interface indexProps extends HTMLAttributes<HTMLDivElement> {
   pokemon: GetPokemonProps;
 }
