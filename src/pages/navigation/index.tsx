@@ -11,8 +11,8 @@ const index: indexComponents = ({ ...resProps }) => {
       <nav
         {...resProps}
         className={
-          "  bg-white rounded-xl " +
-          "w-full relative z-20  max-w-[1800px] mx-auto " +
+          "  bg-white  rounded-xl " +
+          "w-full relative z-20  max-w-[1800px] mx-4 lg:mx-auto my-8  " +
           "flex flex-wrap xl:flex-nowrap " +
           `${resProps.className ? resProps.className : ""}`
         }
