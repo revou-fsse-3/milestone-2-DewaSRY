@@ -1,43 +1,61 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import { GetAllResult } from "@utils/pokemon/GetAllPokemonProps";
 import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
 import ErrorFetching from "@/libs/Error";
+import { GetAllPokemon, FetchPokemonByName } from "@/libs/pokemon";
 const pokemonInitValue = {
   allPokemon: [] as GetPokemonProps[],
-  allPokemonNames: [] as GetAllResult[],
   isLoading: false,
   error: null as null | ErrorFetching,
+  _offset: 0,
+  _limited: 50,
 };
 type Actions = {
-  setAllPokemon: (data: GetPokemonProps[]) => void;
-  setAllPokemonNames: (data: GetAllResult[]) => void;
-  setIsLoading: (data: boolean) => void;
-  setIsError: (data: null | ErrorFetching) => void;
+  getMorePokemon: () => Promise<void>;
+  setError: (e: ErrorFetching) => void;
+  setLoading: (val: boolean) => void;
 };
 type State = typeof pokemonInitValue;
 const StatePokemon = create<State & Actions>()(
   immer((set) => ({
     ...pokemonInitValue,
-    setAllPokemon: (data) =>
+    setError: (e) => {
       set((s) => {
-        s.allPokemon = [...s.allPokemon, ...data];
-      }),
-    setAllPokemonNames: (data) =>
+        s.error = e;
+      });
+    },
+    setLoading: (value) => {
       set((s) => {
-        s.allPokemonNames = [...s.allPokemonNames, ...data];
-      }),
-    setIsLoading: (data) =>
+        s.isLoading = value;
+      });
+    },
+    getMorePokemon: async () => {
+      const state = StatePokemon.getState();
       set((s) => {
-        s.isLoading = data;
-      }),
-    setIsError: (data) =>
-      set((s) => {
-        s.error = data;
-      }),
+        s.isLoading = true;
+      });
+      try {
+        const pokemonNames = await GetAllPokemon(state._limited, state._offset);
+        const allPokemon = await FetchPokemonByName(pokemonNames);
+        set((s) => {
+          s.allPokemon = [...s.allPokemon, ...allPokemon];
+        });
+        set((s) => {
+          s._offset = s._offset + s._limited;
+        });
+      } catch (er) {
+        if (er instanceof ErrorFetching) {
+          set((s) => {
+            s.error = er as ErrorFetching;
+          });
+        }
+      } finally {
+        set((s) => {
+          s.isLoading = false;
+        });
+      }
+    },
   }))
 );
-
 export default StatePokemon;
-
 export { pokemonInitValue };

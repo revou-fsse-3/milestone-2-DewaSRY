@@ -1,3 +1,5 @@
+import { GetPokemonProps } from "./GetPokemonProps";
+
 export type PokemonTypes =
   | "fire"
   | "grass"
@@ -111,3 +113,10 @@ export const TypeArray: PokemonTypes[] = [
   "shadow",
   "unknow",
 ];
+
+export const filterPokemonType = (
+  pokemonArr: GetPokemonProps[],
+  type: PokemonTypes
+) => {
+  return pokemonArr.filter((p) => p.types.find((t) => t.type.name === type));
+};

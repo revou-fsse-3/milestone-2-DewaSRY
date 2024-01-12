@@ -1,4 +1,4 @@
-import { pokemonSearch } from "./usePokemonSearch";
+import { pokemonSearch } from "./useSearch";
 import { FC, HTMLAttributes, PropsWithChildren, useState, useRef } from "react";
 import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
 import usePokemon from "@store/StatePokemon";
@@ -11,12 +11,14 @@ const PokemonSearchProvider: PokemonSearchProviderComponents = ({
   const allPokemon = usePokemon((s) => s.allPokemon);
   const [data, setData] = useState<GetPokemonProps[]>([]);
   const searchText = useRef("");
-
   const getSearchByName = (name: string) => {
     searchText.current = name;
-    let matchPokemon = allPokemon.filter((p) =>
-      p.name.toLowerCase().includes(name.toLowerCase())
-    );
+    let matchPokemon: GetPokemonProps[] = [];
+    if (searchText.current.trim()) {
+      matchPokemon = allPokemon.filter((p) =>
+        p.name.toLowerCase().includes(name.toLowerCase())
+      );
+    }
     setData(matchPokemon);
   };
   const getReset = () => {

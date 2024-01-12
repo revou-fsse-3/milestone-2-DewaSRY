@@ -7,8 +7,8 @@ interface indexProps extends HTMLAttributes<HTMLDivElement> {
 type indexComponents = FC<indexProps> & PropsWithChildren;
 const index: indexComponents = ({ pokemon, ...resProps }) => {
   return (
-    <div>
-      <H2 className="text-white">Element</H2>
+    <div className="text-white">
+      <H2 className=" my-2 ">Element</H2>
       <div>
         {pokemon.types.map((type) => {
           return (
@@ -17,7 +17,7 @@ const index: indexComponents = ({ pokemon, ...resProps }) => {
               key={type.type.name}
               className={
                 `${resProps.className ? resProps.className : ""} ` +
-                ` ${type.type.name} inline-block text-white  px-4 py-1 rounded-xl mr-4`
+                ` ${type.type.name} inline-block px-8 py-1 rounded-xl ml-4`
               }
             >
               {type.type.name}

@@ -7,9 +7,10 @@ type InputComponent = FC<InputProps> & PropsWithChildren;
 const Input: InputComponent = ({ label, children, ...resProps }) => {
   return (
     <Label label={label}>
+      {/* {label} */}
       <input
-        {...resProps}
         name={label}
+        {...resProps}
         className={
           " px-3 h-6 font-light  py-6 " +
           "active:outline-none focus:outline-none" +

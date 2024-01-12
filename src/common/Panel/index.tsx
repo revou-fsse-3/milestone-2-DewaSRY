@@ -13,7 +13,6 @@ const Panel: PanelComponents = ({
 }) => {
   useEffect(() => {
     const handler = (event: MouseEvent) => {
-      console.log(parent);
       if (!parent) return;
       if (!parent.contains(event.target as HTMLElement)) {
         handleClose();

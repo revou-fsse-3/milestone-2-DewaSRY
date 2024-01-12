@@ -1,6 +1,8 @@
 import { FC, Fragment, HTMLAttributes } from "react";
 import { Outlet } from "react-router-dom";
-import SearchPokemon from "@components/PokemonSearch";
+import SearchPokemon from "@pages/navigation/container/SearchPokemon";
+import POKEDEX from "@assets/Pokédex_logo.png";
+import Link from "@/common/Link";
 interface indexProps extends HTMLAttributes<HTMLElement> {}
 type indexComponents = FC<indexProps>;
 const index: indexComponents = ({ ...resProps }) => {
@@ -9,13 +11,22 @@ const index: indexComponents = ({ ...resProps }) => {
       <nav
         {...resProps}
         className={
-          " relative z-20  " +
-          "w-full max-w-[1000px] mx-auto " +
+          "  bg-white rounded-xl " +
+          "w-full relative z-20  max-w-[1800px] mx-auto " +
+          "flex flex-wrap " +
           `${resProps.className ? resProps.className : ""}`
         }
       >
-        <div className="absolute top-0 right-0 w-5/12 flex justify-end">
-          <SearchPokemon />
+        <Link to="/" className="w-[250px] ">
+          <img
+            className="h-[75px] inline-block "
+            height={50}
+            src={POKEDEX}
+            alt=""
+          />
+        </Link>
+        <div className="h-full py-4 min-w-[600px] flex-1 ">
+          <SearchPokemon className=" " />
         </div>
       </nav>
       <main className="">
@@ -26,14 +37,3 @@ const index: indexComponents = ({ ...resProps }) => {
 };
 
 export default index;
-// export const loader: NavigationLoader<Object> = async ({ request }) => {
-//   const auth = getCookies();
-//   const url = new URL(request.url);
-//   if (url.pathname !== "/") return {};
-//   if (!auth) {
-//     window.location.href = "/auth?mode=log-in";
-//   } else {
-//     window.location.href = "/category";
-//   }
-//   return {};
-// };

@@ -5,6 +5,7 @@ export const enum ButtonTypes {
   SecondaryButton = "bg-blue-400 text-white border-blue-400 ",
   TernaryButton = "bg-sky-400 text-white border-sky-400 ",
   FourButton = "bg-red-400 text-white border-red-400 ",
+  FiveButton = "bg-yellow-400 text-white border-yellow-400 ",
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,8 +32,8 @@ const Button: ButtonComponent = ({
         `${hidedButton ? " hidden " : " inline-block "}` +
         `${activeButton ? " brightness-75 text-black " : "  "}` +
         " my-1 border-2 px-8 text-lg rounded-sm " +
-        "hover:brightness-50 " +
-        " disabled:brightness-50 disabled:border-none disabled:opacity-40 " +
+        `${restProps.disabled ? "" : "hover:brightness-50 "} ` +
+        " disabled:brightness-10 disabled:border-none  disabled:bg-gray-600 " +
         ButtonType +
         `${restProps.className ? restProps.className : ""}`
       }
