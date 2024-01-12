@@ -1,4 +1,4 @@
-import { FC, ButtonHTMLAttributes, PropsWithChildren } from "react";
+import { FC, ButtonHTMLAttributes, PropsWithChildren, Fragment } from "react";
 import Button, { ButtonTypes } from "@/common/Button";
 import useFilterPokemon from "../context/useFilterPokemon";
 import useFavorite from "@/features/store/StateFavoritePokemon";
@@ -16,15 +16,19 @@ const ButtonFavorite: ButtonFavoriteComponents = ({
     setFilterPokemon(favoritePokemon, "favorite");
   };
   return (
-    <Button
-      {...resProps}
-      disabled={type === "favorite"}
-      onClick={getFavoritePokemon}
-      ButtonType={ButtonTypes.FiveButton}
-      className={`${resProps.className ? resProps.className : ""}`}
-    >
-      Favorite ({favoritePokemonNames.length})
-    </Button>
+    <Fragment>
+      {favoritePokemonNames.length ? (
+        <Button
+          {...resProps}
+          disabled={type === "favorite"}
+          onClick={getFavoritePokemon}
+          ButtonType={ButtonTypes.FiveButton}
+          className={`${resProps.className ? resProps.className : ""}`}
+        >
+          Favorite ({favoritePokemonNames.length})
+        </Button>
+      ) : null}
+    </Fragment>
   );
 };
 
