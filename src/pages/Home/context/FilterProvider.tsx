@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from "react";
-import usePokemon from "@store/StatePokemon";
+import usePokemon from "@/features/store/StatePokemon";
 import { filterPokemon } from "./useFilterPokemon";
 import {
   PokemonType,

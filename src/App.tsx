@@ -5,7 +5,7 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import usePokemon from "@store/StatePokemon";
+import usePokemon from "@/features/store/StatePokemon";
 import Home from "@pages/Home";
 import Pokemon from "@pages/pokemon";
 import Navigation from "@pages/navigation";

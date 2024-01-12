@@ -1,6 +1,6 @@
 import Button, { ButtonTypes } from "@/common/Button";
 import { FC, HTMLAttributes, PropsWithChildren } from "react";
-import usePokemon from "@store/StatePokemon";
+import usePokemon from "@/features/store/StatePokemon";
 interface indexProps extends HTMLAttributes<HTMLDivElement> {}
 type indexComponents = FC<indexProps> & PropsWithChildren;
 const index: indexComponents = ({ children, ...resProps }) => {

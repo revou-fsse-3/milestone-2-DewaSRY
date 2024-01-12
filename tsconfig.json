@@ -31,7 +31,7 @@
       "@libs/*": ["./src/libs/*"],
       "@layout/*": ["./src/layout/*"],
       "@container/*": ["./src/container/*"],
-      "@store/*": ["./src/store/*"],
+      "@store/*": ["./src/features/store/*"],
       "@context/*": ["./src/context/*"],
       "@components/*": ["./src/components/*"]
     }

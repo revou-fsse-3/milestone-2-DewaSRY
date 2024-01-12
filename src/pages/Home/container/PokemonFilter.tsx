@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes } from "react";
 import { TypeArray, matherType, PokemonTypes } from "@libs/pokemon/PokemonType";
 import useFilterPokemon from "@/pages/Home/context/useFilterPokemon";
-import usePokemon from "@store/StatePokemon";
+import usePokemon from "@/features/store/StatePokemon";
 import Expanded from "@common/Expanded";
 import ButtonFilter from "../components/ButtonFilter";
 import ButtonReset from "../components/ButtonReset";
@@ -26,7 +26,7 @@ const index: indexComponents = ({ ...resProps }) => {
             <span className="underline text-2xl block">Pokemon table </span>
             <span className="inline-block">({amountPokemon}) Pokemon</span>
             <span className="inline-block mx-4">
-              {type.length ? `type #${type} (${data.length}) ` : ""}
+              {type.trim() ? `type #${type} (${data.length}) ` : ""}
             </span>
           </nav>
         }

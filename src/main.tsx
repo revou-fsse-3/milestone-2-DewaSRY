@@ -7,12 +7,10 @@ import "./index.css";
 const queryClient = new QueryClient();
 // import PokemonListProvider from "@/context/PokemonList/PokemonListProvider.tsx";
 // import FilterProvider from "@/pages/Home/context/FilterProvider.tsx";
-import PokemonSearchProvider from "@/context/PokemonSearch/PokemonSearchProvider.tsx";
+// import PokemonSearchProvider from "@/context/PokemonSearch/PokemonSearchProvider.tsx";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   // <React.StrictMode>
   <QueryClientProvider client={queryClient}>
-    <PokemonSearchProvider>
-      <App />
-    </PokemonSearchProvider>
+    <App />
   </QueryClientProvider>
 );
