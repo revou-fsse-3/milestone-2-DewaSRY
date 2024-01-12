@@ -36,7 +36,6 @@ const FilterProvider: FilterProviderComponents = ({ children }) => {
   useEffect(() => {
     let newType: GetPokemonProps[] = allPokemon;
     if (storeType.current.trim().length > 0) {
-      console.log(storeType.current);
       newType = filterPokemonType(
         allPokemon,
         storeType.current as PokemonTypes

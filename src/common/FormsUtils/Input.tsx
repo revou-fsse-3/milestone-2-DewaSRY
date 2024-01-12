@@ -13,7 +13,7 @@ const Input: InputComponent = ({ label, children, ...resProps }) => {
         {...resProps}
         className={
           " px-3 h-6 font-light  py-6 " +
-          "active:outline-none focus:outline-none" +
+          "active:outline-none focus:outline-none " +
           `${resProps.className ? resProps.className : ""}`
         }
       />

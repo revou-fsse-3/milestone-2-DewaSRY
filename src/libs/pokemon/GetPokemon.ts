@@ -2,19 +2,26 @@ import { BASE_URL } from ".";
 import { makeFetchError } from "@libs/Error";
 import { GetPokemonProps } from "@/utils/pokemon/GetPokemonProps";
 import { addDocument, getDocument } from "@libs/indexDB";
+import ErrorFetching from "@libs/Error";
 export default async function GetPokemon(
   name = "",
   signal?: AbortSignal
 ): Promise<GetPokemonProps> {
   let POKEMON_URL = BASE_URL + "pokemon" + "/" + name;
   let pokemon = await getDocument<GetPokemonProps>(POKEMON_URL);
-  if (!pokemon) {
+  if (pokemon) return pokemon;
+
+  try {
     pokemon = await fetchPokemon(POKEMON_URL, signal);
     await addDocument(POKEMON_URL, pokemon);
+    return pokemon;
+  } catch (error) {
+    if (error instanceof ErrorFetching) {
+      throw error;
+    } else {
+      throw new ErrorFetching("pokemon not found", name, 404);
+    }
   }
-  // console.log(POKEMON_URL);
-  // console.log(pokemon);
-  return pokemon;
 }
 
 async function fetchPokemon(
@@ -29,5 +36,6 @@ async function fetchPokemon(
   });
   await makeFetchError(req, "Failed to fetch pokemon with this " + name);
   const response = (await req.json()) as unknown as GetPokemonProps;
+  if (!response) throw new ErrorFetching("pokemon not found", "", 404);
   return response as GetPokemonProps;
 }

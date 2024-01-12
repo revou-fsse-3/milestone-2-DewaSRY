@@ -26,6 +26,7 @@ const index: indexComponents = ({ children, ...resProps }) => {
           >
             <PokemonInput
               placeholder="type pokemon here"
+              className="text-xl"
               props={props}
               label="name"
             />

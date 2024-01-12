@@ -6,22 +6,26 @@ import PokemonImg from "@/components/PokemonImg";
 import PokemonTitle from "./components/PokemonTitle";
 import PokemonType from "@/components/pokemonType";
 import PokemonBMI from "./components/PokemonBMI";
+import ErrorBanner from "./components/ErrorBanner";
 import { useQuery } from "@tanstack/react-query";
 import { GetPokemon } from "@/libs/pokemon";
 import { useParams } from "react-router-dom";
 import { GetPokemonProps } from "@/utils/pokemon/GetPokemonProps";
 import ErrorFetching from "@/libs/Error";
 import { FC, HTMLAttributes, PropsWithChildren } from "react";
+
 interface indexProps extends HTMLAttributes<HTMLDivElement> {}
 type indexComponents = FC<indexProps> & PropsWithChildren;
 const index: indexComponents = ({ children, ...resProps }) => {
   const { pokemon: pokemonName } = useParams();
-  const { data: pokemon, isLoading } = useQuery<GetPokemonProps, ErrorFetching>(
-    {
-      queryKey: [`pokemon-${pokemonName}`],
-      queryFn: ({ signal }) => GetPokemon(pokemonName, signal),
-    }
-  );
+  const {
+    data: pokemon,
+    isLoading,
+    error,
+  } = useQuery<GetPokemonProps, ErrorFetching>({
+    queryKey: [`pokemon-${pokemonName}`],
+    queryFn: ({ signal }) => GetPokemon(pokemonName, signal),
+  });
   return (
     <div
       {...resProps}
@@ -30,11 +34,12 @@ const index: indexComponents = ({ children, ...resProps }) => {
         `${resProps.className ? resProps.className : ""}`
       }
     >
-      {!pokemon || isLoading ? (
+      {isLoading && (
         <Fragment>
           <Shimmer times={3} className="mb-2 py-[150px]" />
         </Fragment>
-      ) : (
+      )}
+      {pokemon && (
         <>
           <PokemonImg
             pokemon={pokemon}
@@ -52,6 +57,7 @@ const index: indexComponents = ({ children, ...resProps }) => {
           <PokemonGallery className=" " pokemon={pokemon} />
         </>
       )}
+      {error && <ErrorBanner error={error} />}
     </div>
   );
 };
