@@ -1,4 +1,4 @@
-import Localbase from "localbase";
+import Localbase from "../localbase";
 
 const LOCALBASE_NAME = "pokemon",
   COLLECTIONS_POKEMON = "pokemon-collections";
