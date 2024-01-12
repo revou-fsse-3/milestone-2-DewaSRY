@@ -1,5 +1,4 @@
-import { GetPokemonProps } from "./GetPokemonProps";
-
+import { GetPokemonProps } from "@libs/pokemon/GetPokemon";
 export type PokemonTypes =
   | "fire"
   | "grass"

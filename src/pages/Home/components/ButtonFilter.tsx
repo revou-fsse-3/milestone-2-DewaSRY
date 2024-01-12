@@ -1,6 +1,6 @@
 import { FC, ButtonHTMLAttributes, PropsWithChildren } from "react";
 import Button from "@/common/Button";
-import { filterPokemonType, PokemonType } from "@utils/pokemon/PokemonType";
+import { filterPokemonType, PokemonType } from "@libs/pokemon/PokemonType";
 import useFilterPokemon from "@/pages/Home/context/useFilterPokemon";
 import usePokemon from "@store/StatePokemon";
 interface ButtonFilterProps extends ButtonHTMLAttributes<HTMLButtonElement> {

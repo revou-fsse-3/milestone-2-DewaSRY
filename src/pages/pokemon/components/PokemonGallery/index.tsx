@@ -1,5 +1,5 @@
 import { FC, Fragment, HTMLAttributes, PropsWithChildren } from "react";
-import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
+import { GetPokemonProps } from "@libs/pokemon/GetPokemon";
 import { getCleanForward } from "@utils/StringOperations";
 import { getObjectToStringArr } from "@/utils/ObjectOperations";
 import GalleryImg from "./GalleryImg";

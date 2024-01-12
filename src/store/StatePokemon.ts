@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
+import { GetPokemonProps } from "@libs/pokemon/GetPokemon";
 import ErrorFetching from "@/libs/Error";
 import { GetAllPokemon, FetchPokemonByName } from "@/libs/pokemon";
 const pokemonInitValue = {

@@ -1,6 +1,6 @@
 import { pokemonSearch } from "./useSearch";
 import { FC, HTMLAttributes, PropsWithChildren, useState, useRef } from "react";
-import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
+import { GetPokemonProps } from "@libs/pokemon/GetPokemon";
 import usePokemon from "@store/StatePokemon";
 interface PokemonSearchProviderProps extends HTMLAttributes<HTMLDivElement> {}
 type PokemonSearchProviderComponents = FC<PokemonSearchProviderProps> &

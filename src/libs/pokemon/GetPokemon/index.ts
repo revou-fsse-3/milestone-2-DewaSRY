@@ -1,7 +1,8 @@
-import { BASE_URL } from ".";
+import { BASE_URL } from "@libs/pokemon";
 import { makeFetchError } from "@libs/Error";
-import { GetPokemonProps } from "@/utils/pokemon/GetPokemonProps";
+// import { GetPokemonProps } from "@/utils/pokemon/GetPokemonProps";
 import { addDocument, getDocument } from "@libs/indexDB";
+import type GetPokemonProps from "./GetPokemonProps";
 import ErrorFetching from "@libs/Error";
 export default async function GetPokemon(
   name = "",
@@ -39,3 +40,5 @@ async function fetchPokemon(
   if (!response) throw new ErrorFetching("pokemon not found", "", 404);
   return response as GetPokemonProps;
 }
+
+export { GetPokemonProps };

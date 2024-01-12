@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
-import { PokemonType, PokemonTypes } from "@utils/pokemon/PokemonType";
-import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
+import { PokemonType, PokemonTypes } from "@libs/pokemon/PokemonType";
+import { GetPokemonProps } from "@libs/pokemon/GetPokemon";
 // import { pokemonInitValue } from "@store/StateFavoritePokemon";
 const filterPokemon = createContext({
   setFilterPokemon: async (

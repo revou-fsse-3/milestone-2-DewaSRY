@@ -1,6 +1,5 @@
-import { BASE_URL } from ".";
+import { BASE_URL } from "@libs/pokemon";
 import { makeFetchError } from "@libs/Error";
-import { GetAllProps, GetAllResult } from "@/utils/pokemon/GetAllPokemonProps";
 export default async function GetAllPokemon(
   limit = 30,
   offset = 0,
@@ -15,4 +14,16 @@ export default async function GetAllPokemon(
   await makeFetchError(req, "failed to fetch all pokemon");
   const response = (await req.json()) as unknown as GetAllProps;
   return response.results;
+}
+
+export interface GetAllProps {
+  count: number;
+  next: string;
+  previous: string;
+  results: GetAllResult[];
+}
+
+export interface GetAllResult {
+  name: string;
+  url: string;
 }

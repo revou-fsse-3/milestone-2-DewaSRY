@@ -4,7 +4,7 @@ const LOCALBASE_NAME = "pokemon",
   COLLECTIONS_POKEMON = "pokemon-collections";
 
 let db = new Localbase(LOCALBASE_NAME);
-
+db.config.debug = false;
 async function addDocument(key, data) {
   await db.collection(COLLECTIONS_POKEMON).add(data, key);
 }

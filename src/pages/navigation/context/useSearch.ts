@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
+import { GetPokemonProps } from "@libs/pokemon/GetPokemon";
 
 const pokemonSearch = createContext({
   getSearchByName: (_name: string) => {},

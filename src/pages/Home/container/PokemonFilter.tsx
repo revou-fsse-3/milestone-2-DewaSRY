@@ -1,9 +1,5 @@
 import { FC, HTMLAttributes } from "react";
-import {
-  TypeArray,
-  matherType,
-  PokemonTypes,
-} from "@utils/pokemon/PokemonType";
+import { TypeArray, matherType, PokemonTypes } from "@libs/pokemon/PokemonType";
 import useFilterPokemon from "@/pages/Home/context/useFilterPokemon";
 import usePokemon from "@store/StatePokemon";
 import Expanded from "@common/Expanded";

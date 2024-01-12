@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes, PropsWithChildren } from "react";
-import { Stat } from "@utils/pokemon/GetPokemonProps";
+import { Stat } from "@libs/pokemon/GetPokemon/GetPokemonProps";
 import Progress from "@/common/Progress";
 interface StateDisplayProps extends HTMLAttributes<HTMLDivElement> {
   status: Stat;

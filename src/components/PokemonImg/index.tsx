@@ -1,5 +1,5 @@
 import { FC, ImgHTMLAttributes } from "react";
-import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
+import { GetPokemonProps } from "@libs/pokemon/GetPokemon";
 import PokemonFavorite from "./PokemonFavorite";
 interface indexProps extends ImgHTMLAttributes<HTMLImageElement> {
   pokemon: GetPokemonProps;

@@ -1,7 +1,8 @@
 import { FC, ImgHTMLAttributes, PropsWithChildren } from "react";
-import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
+// import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps"
 import PokemonImg from "@components/PokemonImg";
 import Link from "@common/Link";
+import { GetPokemonProps } from "@libs/pokemon/GetPokemon";
 interface PokemonSearchCardProps extends ImgHTMLAttributes<HTMLImageElement> {
   pokemon: GetPokemonProps;
 }

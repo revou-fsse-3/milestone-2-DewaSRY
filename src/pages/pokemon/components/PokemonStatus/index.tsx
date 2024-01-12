@@ -1,5 +1,5 @@
 import { FC, Fragment, HTMLAttributes, PropsWithChildren } from "react";
-import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
+import { GetPokemonProps } from "@libs/pokemon/GetPokemon";
 import StatusDisplay from "./StateDisplay";
 import H2 from "@common/H2";
 interface indexProps extends HTMLAttributes<HTMLDivElement> {

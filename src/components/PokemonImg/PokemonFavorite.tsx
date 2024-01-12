@@ -1,7 +1,7 @@
 import { FC, ButtonHTMLAttributes, PropsWithChildren } from "react";
 import Button, { ButtonTypes } from "@/common/Button";
 import useFilterPokemon from "@store/StateFavoritePokemon";
-import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
+import { GetPokemonProps } from "@libs/pokemon/GetPokemon";
 import StartWrapper from "./StartWrapper";
 interface indexProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   pokemon: GetPokemonProps;

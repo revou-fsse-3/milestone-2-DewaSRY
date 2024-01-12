@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes } from "react";
-import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
+import { GetPokemonProps } from "@libs/pokemon/GetPokemon";
 import Link from "@common/Link";
 // import PokemonFavorite from "@components/PokemonFavorite";
 import PokemonType from "@components/pokemonType";

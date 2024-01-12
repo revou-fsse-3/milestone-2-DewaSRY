@@ -1,5 +1,5 @@
-import { GetAllResult } from "@/utils/pokemon/GetAllPokemonProps";
-import GetPokemon from "./GetPokemon";
+import GetPokemon from "@libs/pokemon/GetPokemon";
+import { GetAllResult } from "@libs/pokemon/GetAllPokemon";
 
 export default async function FetchPokemonByName(pokemonNames: GetAllResult[]) {
   try {

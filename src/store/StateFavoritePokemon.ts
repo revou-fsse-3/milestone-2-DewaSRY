@@ -1,7 +1,7 @@
 import { create } from "zustand";
 // import { immer } from "zustand/middleware/immer";
 import { persist } from "zustand/middleware";
-import { GetAllResult } from "@utils/pokemon/GetAllPokemonProps";
+import { GetAllResult } from "@libs/pokemon/GetAllPokemon";
 const pokemonInitValue = {
   favoritePokemonNames: [] as GetAllResult[],
 };

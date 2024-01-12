@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes, PropsWithChildren } from "react";
-import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
+import { GetPokemonProps } from "@libs/pokemon/GetPokemon";
 interface indexProps extends HTMLAttributes<HTMLDivElement> {
   pokemon: GetPokemonProps;
 }

@@ -12,8 +12,8 @@ import {
   PokemonType,
   PokemonTypes,
   filterPokemonType,
-} from "@utils/pokemon/PokemonType";
-import { GetPokemonProps } from "@utils/pokemon/GetPokemonProps";
+} from "@libs/pokemon/PokemonType";
+import { GetPokemonProps } from "@libs/pokemon/GetPokemon";
 interface FilterProviderProps extends HTMLAttributes<HTMLDivElement> {}
 type FilterProviderComponents = FC<FilterProviderProps> & PropsWithChildren;
 const FilterProvider: FilterProviderComponents = ({ children }) => {
